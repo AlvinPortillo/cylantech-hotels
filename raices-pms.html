@@ -7,29 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0f1117;
-    --surface: #181c27;
-    --surface2: #1e2333;
-    --border: #2a3045;
-    --accent: #c8a96e;
-    --accent2: #7c9cff;
-    --danger: #e05c5c;
-    --success: #4caf82;
-    --text: #e8e4d9;
-    --muted: #7a8099;
+    --bg: #0f1117; --surface: #181c27; --surface2: #1e2333; --border: #2a3045;
+    --accent: #c8a96e; --accent2: #7c9cff; --danger: #e05c5c; --success: #4caf82;
+    --text: #e8e4d9; --muted: #7a8099;
     --font-display: 'DM Serif Display', Georgia, serif;
-    --font-body: 'DM Sans', sans-serif;
-    --radius: 10px;
+    --font-body: 'DM Sans', sans-serif; --radius: 10px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 14px; min-height: 100vh; }
-
   .app { display: flex; min-height: 100vh; }
   .sidebar { width: 220px; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; }
   .main { flex: 1; overflow-y: auto; }
-
   .logo { padding: 24px 20px 20px; border-bottom: 1px solid var(--border); }
-  .logo-top { font-family: var(--font-display); font-size: 20px; color: var(--accent); letter-spacing: 0.02em; }
+  .logo-top { font-family: var(--font-display); font-size: 20px; color: var(--accent); }
   .logo-sub { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; }
   .hotel-badge { margin: 16px 12px; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 12px; }
   .hotel-name { font-size: 12px; font-weight: 600; color: var(--text); }
@@ -38,31 +28,28 @@
   .nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 20px; cursor: pointer; color: var(--muted); font-size: 13px; font-weight: 500; border-left: 3px solid transparent; transition: all 0.15s; user-select: none; }
   .nav-item:hover { color: var(--text); background: var(--surface2); }
   .nav-item.active { color: var(--accent); border-left-color: var(--accent); background: rgba(200,169,110,0.06); }
-  .nav-icon { width: 16px; text-align: center; font-size: 15px; }
   .sidebar-footer { padding: 16px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); text-align: center; }
   .powered { color: var(--accent); font-weight: 600; }
-
   .topbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; z-index: 10; }
-  .page-title { font-family: var(--font-display); font-size: 22px; color: var(--text); }
-  .topbar-actions { display: flex; gap: 10px; }
-
+  .page-title { font-family: var(--font-display); font-size: 22px; }
+  .topbar-actions { display: flex; gap: 10px; align-items: center; }
   .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: var(--radius); border: none; cursor: pointer; font-family: var(--font-body); font-size: 13px; font-weight: 500; transition: all 0.15s; }
   .btn-primary { background: var(--accent); color: #1a1400; }
   .btn-primary:hover { background: #d9bb82; }
   .btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); }
   .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+  .btn-danger { background: transparent; color: var(--danger); border: 1px solid var(--danger); }
+  .btn-danger:hover { background: rgba(224,92,92,0.1); }
+  .btn-success { background: transparent; color: var(--success); border: 1px solid var(--success); }
+  .btn-success:hover { background: rgba(76,175,130,0.1); }
   .btn-sm { padding: 5px 10px; font-size: 12px; }
-
   .content { padding: 28px; }
-
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 20px; }
   .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
   .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
-  .stat-value { font-family: var(--font-display); font-size: 28px; color: var(--text); }
+  .stat-value { font-family: var(--font-display); font-size: 28px; }
   .stat-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
-  .stat-accent { color: var(--accent); }
-  .stat-success { color: var(--success); }
-
+  .c-success { color: var(--success); } .c-accent { color: var(--accent); } .c-blue { color: var(--accent2); }
   .table-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
   .table-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--border); }
   .table-title { font-weight: 600; font-size: 14px; }
@@ -71,46 +58,45 @@
   .search-input::placeholder { color: var(--muted); }
   table { width: 100%; border-collapse: collapse; }
   th { text-align: left; padding: 10px 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border); font-weight: 500; }
-  td { padding: 12px 20px; border-bottom: 1px solid rgba(42,48,69,0.5); vertical-align: middle; }
+  td { padding: 11px 20px; border-bottom: 1px solid rgba(42,48,69,0.5); vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: rgba(255,255,255,0.02); }
   .empty-row td { text-align: center; color: var(--muted); padding: 40px; font-style: italic; }
-
   .badge { display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; }
   .badge-libre { background: rgba(76,175,130,0.15); color: var(--success); }
   .badge-ocupada { background: rgba(200,169,110,0.15); color: var(--accent); }
   .badge-reservada { background: rgba(124,156,255,0.15); color: var(--accent2); }
   .badge-checkout { background: rgba(224,92,92,0.15); color: var(--danger); }
-  .badge-mantenimiento { background: rgba(122,128,153,0.15); color: var(--muted); }
-
+  .badge-cancelada { background: rgba(122,128,153,0.15); color: var(--muted); }
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 100; align-items: center; justify-content: center; }
   .modal-overlay.open { display: flex; }
   .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; width: 480px; max-width: 95vw; max-height: 90vh; overflow-y: auto; }
+  .modal-sm { width: 380px; }
   .modal-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--border); }
   .modal-title { font-family: var(--font-display); font-size: 18px; }
   .modal-close { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 20px; line-height: 1; padding: 4px; }
   .modal-body { padding: 24px; }
   .modal-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; gap: 10px; justify-content: flex-end; }
-
+  .confirm-icon { font-size: 40px; text-align: center; margin-bottom: 14px; }
+  .confirm-msg { text-align: center; color: var(--muted); font-size: 14px; line-height: 1.7; }
+  .confirm-msg strong { color: var(--text); }
   .form-group { margin-bottom: 16px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   label { display: block; font-size: 12px; font-weight: 500; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
   input, select, textarea { width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; color: var(--text); font-family: var(--font-body); font-size: 13px; outline: none; transition: border-color 0.15s; }
   input:focus, select:focus, textarea:focus { border-color: var(--accent); }
   select option { background: var(--surface2); }
-
-  .rooms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+  .field-error { font-size: 11px; color: var(--danger); margin-top: 5px; display: none; }
+  .rooms-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(160px,1fr)); gap: 14px; }
   .room-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; transition: all 0.15s; }
   .room-card:hover { border-color: var(--accent); transform: translateY(-1px); }
   .room-number { font-family: var(--font-display); font-size: 24px; color: var(--accent); }
   .room-type { font-size: 12px; color: var(--muted); margin-top: 4px; }
-  .room-price { font-size: 13px; font-weight: 600; margin-top: 8px; color: var(--text); }
+  .room-price { font-size: 13px; font-weight: 600; margin-top: 8px; }
   .room-status { margin-top: 10px; }
-
   .tabs { display: flex; gap: 4px; margin-bottom: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 4px; width: fit-content; }
-  .tab { padding: 7px 18px; border-radius: 7px; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--muted); transition: all 0.15s; user-select: none; }
+  .tab { padding: 7px 16px; border-radius: 7px; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--muted); transition: all 0.15s; user-select: none; }
   .tab.active { background: var(--accent); color: #1a1400; }
-
   .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px; }
   .chart-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
   .chart-title { font-size: 11px; font-weight: 600; margin-bottom: 16px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
@@ -121,21 +107,22 @@
   .donut-wrap { display: flex; align-items: center; gap: 20px; }
   .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
   .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-
+  .date-row { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 18px; }
+  .date-row label { margin: 0; text-transform: none; letter-spacing: 0; font-size: 13px; white-space: nowrap; }
+  .date-row input { width: 170px; margin: 0; }
   .toast { position: fixed; bottom: 24px; right: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 18px; font-size: 13px; z-index: 999; transform: translateY(100px); opacity: 0; transition: all 0.3s; }
   .toast.show { transform: translateY(0); opacity: 1; }
   .toast.success { border-color: var(--success); color: var(--success); }
   .toast.error { border-color: var(--danger); color: var(--danger); }
-
+  .empty-state { text-align: center; padding: 48px 24px; }
+  .empty-state-icon { font-size: 44px; margin-bottom: 14px; }
+  .empty-state-title { font-family: var(--font-display); font-size: 20px; margin-bottom: 8px; }
+  .empty-state-desc { color: var(--muted); font-size: 13px; line-height: 1.7; margin-bottom: 20px; max-width: 300px; margin-left: auto; margin-right: auto; }
   .loading { text-align: center; padding: 40px; color: var(--muted); }
   .spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; margin-right: 8px; vertical-align: middle; }
   @keyframes spin { to { transform: rotate(360deg); } }
-
-  @media (max-width: 900px) {
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .chart-row { grid-template-columns: 1fr; }
-    .sidebar { width: 180px; }
-  }
+  .action-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+  @media (max-width:900px) { .stats-grid{grid-template-columns:repeat(2,1fr);} .chart-row{grid-template-columns:1fr;} .sidebar{width:180px;} }
 </style>
 </head>
 <body>
@@ -169,11 +156,16 @@
         </div>
       </div>
       <div class="content">
+        <div class="date-row">
+          <label>Ver disponibilidad para:</label>
+          <input type="date" id="dash-date" onchange="loadDashboard()">
+          <button class="btn btn-ghost btn-sm" onclick="resetDashDate()">Hoy</button>
+        </div>
         <div class="stats-grid">
-          <div class="stat-card"><div class="stat-label">Habitaciones libres</div><div class="stat-value stat-success" id="stat-libres">—</div><div class="stat-sub">disponibles hoy</div></div>
-          <div class="stat-card"><div class="stat-label">Ocupadas</div><div class="stat-value stat-accent" id="stat-ocupadas">—</div><div class="stat-sub">check-in activo</div></div>
-          <div class="stat-card"><div class="stat-label">Reservadas</div><div class="stat-value" style="color:var(--accent2)" id="stat-reservadas">—</div><div class="stat-sub">próximos ingresos</div></div>
-          <div class="stat-card"><div class="stat-label">Ingresos del mes</div><div class="stat-value stat-accent" id="stat-ingresos">—</div><div class="stat-sub" id="stat-mes">este mes</div></div>
+          <div class="stat-card"><div class="stat-label">Habitaciones libres</div><div class="stat-value c-success" id="stat-libres">—</div><div class="stat-sub" id="stat-libres-sub">para la fecha</div></div>
+          <div class="stat-card"><div class="stat-label">Ocupadas</div><div class="stat-value c-accent" id="stat-ocupadas">—</div><div class="stat-sub">con check-in</div></div>
+          <div class="stat-card"><div class="stat-label">Reservadas</div><div class="stat-value c-blue" id="stat-reservadas">—</div><div class="stat-sub">reserva futura</div></div>
+          <div class="stat-card"><div class="stat-label">Ingresos confirmados</div><div class="stat-value c-accent" id="stat-ingresos">—</div><div class="stat-sub">checkouts del mes</div></div>
         </div>
         <div class="chart-row">
           <div class="chart-card">
@@ -181,7 +173,7 @@
             <div class="bar-chart" id="bar-chart"><div class="loading"><span class="spinner"></span></div></div>
           </div>
           <div class="chart-card">
-            <div class="chart-title">Estado actual</div>
+            <div class="chart-title">Estado para la fecha seleccionada</div>
             <div class="donut-wrap">
               <svg width="90" height="90" id="donut-svg" viewBox="0 0 90 90"></svg>
               <div id="donut-legend"></div>
@@ -202,9 +194,7 @@
     <div id="page-habitaciones" style="display:none">
       <div class="topbar">
         <div class="page-title">Habitaciones</div>
-        <div class="topbar-actions">
-          <button class="btn btn-primary" onclick="openModal('modal-habitacion')">+ Nueva habitación</button>
-        </div>
+        <div class="topbar-actions"><button class="btn btn-primary" onclick="openModal('modal-habitacion')">+ Nueva habitación</button></div>
       </div>
       <div class="content">
         <div class="rooms-grid" id="rooms-grid"><div class="loading"><span class="spinner"></span>Cargando...</div></div>
@@ -215,9 +205,7 @@
     <div id="page-reservas" style="display:none">
       <div class="topbar">
         <div class="page-title">Reservas</div>
-        <div class="topbar-actions">
-          <button class="btn btn-primary" onclick="openModal('modal-reserva')">+ Nueva reserva</button>
-        </div>
+        <div class="topbar-actions"><button class="btn btn-primary" onclick="openModal('modal-reserva')">+ Nueva reserva</button></div>
       </div>
       <div class="content">
         <div class="tabs" id="tabs-reservas">
@@ -225,6 +213,7 @@
           <div class="tab" data-filter="reservada">Reservadas</div>
           <div class="tab" data-filter="ocupada">Activas</div>
           <div class="tab" data-filter="checkout">Check-out</div>
+          <div class="tab" data-filter="cancelada">Canceladas</div>
         </div>
         <div class="table-card">
           <div class="table-header">
@@ -243,9 +232,7 @@
     <div id="page-clientes" style="display:none">
       <div class="topbar">
         <div class="page-title">Clientes</div>
-        <div class="topbar-actions">
-          <button class="btn btn-primary" onclick="openModal('modal-cliente')">+ Nuevo cliente</button>
-        </div>
+        <div class="topbar-actions"><button class="btn btn-primary" onclick="openModal('modal-cliente')">+ Nuevo cliente</button></div>
       </div>
       <div class="content">
         <div class="table-card">
@@ -267,7 +254,7 @@
       <div class="content">
         <div class="chart-row">
           <div class="chart-card">
-            <div class="chart-title">Ingresos por mes</div>
+            <div class="chart-title">Ingresos confirmados por mes (checkouts)</div>
             <div class="bar-chart" id="report-ingresos"><div class="loading"><span class="spinner"></span></div></div>
           </div>
           <div class="chart-card">
@@ -278,7 +265,7 @@
         <div class="table-card">
           <div class="table-header"><div class="table-title">Clientes frecuentes</div></div>
           <table>
-            <thead><tr><th>Cliente</th><th>Visitas</th><th>Total gastado</th></tr></thead>
+            <thead><tr><th>Cliente</th><th>Visitas completadas</th><th>Total confirmado</th></tr></thead>
             <tbody id="tb-frecuentes"></tbody>
           </table>
         </div>
@@ -290,31 +277,18 @@
 <!-- Modal Habitación -->
 <div class="modal-overlay" id="modal-habitacion">
   <div class="modal">
-    <div class="modal-head">
-      <div class="modal-title">Nueva Habitación</div>
-      <button class="modal-close" onclick="closeModal('modal-habitacion')">×</button>
-    </div>
+    <div class="modal-head"><div class="modal-title">Nueva Habitación</div><button class="modal-close" onclick="closeModal('modal-habitacion')">×</button></div>
     <div class="modal-body">
       <div class="form-row">
         <div class="form-group"><label>Número</label><input id="hab-numero" type="number" placeholder="101"></div>
         <div class="form-group"><label>Tipo</label>
-          <select id="hab-tipo">
-            <option>Sencilla Deluxe</option>
-            <option>Doble Deluxe</option>
-            <option>Triple Deluxe</option>
-            <option>Doble Estándar</option>
-            <option>Triple Estándar</option>
-          </select>
+          <select id="hab-tipo"><option>Sencilla Deluxe</option><option>Doble Deluxe</option><option>Triple Deluxe</option><option>Doble Estándar</option><option>Triple Estándar</option></select>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group"><label>Precio por noche ($)</label><input id="hab-precio" type="number" placeholder="35"></div>
         <div class="form-group"><label>Estado</label>
-          <select id="hab-estado">
-            <option value="libre">Libre</option>
-            <option value="ocupada">Ocupada</option>
-            <option value="mantenimiento">Mantenimiento</option>
-          </select>
+          <select id="hab-estado"><option value="libre">Libre</option><option value="ocupada">Ocupada</option><option value="mantenimiento">Mantenimiento</option></select>
         </div>
       </div>
     </div>
@@ -328,10 +302,7 @@
 <!-- Modal Cliente -->
 <div class="modal-overlay" id="modal-cliente">
   <div class="modal">
-    <div class="modal-head">
-      <div class="modal-title">Nuevo Cliente</div>
-      <button class="modal-close" onclick="closeModal('modal-cliente')">×</button>
-    </div>
+    <div class="modal-head"><div class="modal-title">Nuevo Cliente</div><button class="modal-close" onclick="closeModal('modal-cliente')">×</button></div>
     <div class="modal-body">
       <div class="form-group"><label>Nombre completo</label><input id="cli-nombre" placeholder="Juan Pérez"></div>
       <div class="form-row">
@@ -341,44 +312,32 @@
       <div class="form-group"><label>Notas</label><textarea id="cli-notas" rows="2" placeholder="Preferencias, alergias, etc."></textarea></div>
     </div>
     <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="limpiarCliente()">Limpiar</button>
       <button class="btn btn-ghost" onclick="closeModal('modal-cliente')">Cancelar</button>
       <button class="btn btn-primary" onclick="guardarCliente()">Guardar</button>
     </div>
   </div>
 </div>
 
-<!-- Modal Reserva -->
+<!-- Modal Reserva (contenido dinámico) -->
 <div class="modal-overlay" id="modal-reserva">
   <div class="modal">
-    <div class="modal-head">
-      <div class="modal-title">Nueva Reserva</div>
-      <button class="modal-close" onclick="closeModal('modal-reserva')">×</button>
-    </div>
-    <div class="modal-body">
-      <div class="form-group"><label>Cliente</label>
-        <select id="res-cliente"><option value="">Seleccionar cliente...</option></select>
-      </div>
-      <div class="form-group"><label>Habitación disponible</label>
-        <select id="res-habitacion"><option value="">Seleccionar habitación...</option></select>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label>Fecha entrada</label><input id="res-entrada" type="date"></div>
-        <div class="form-group"><label>Fecha salida</label><input id="res-salida" type="date"></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label>Total ($)</label><input id="res-total" type="number" placeholder="0.00"></div>
-        <div class="form-group"><label>Estado</label>
-          <select id="res-estado">
-            <option value="reservada">Reservada</option>
-            <option value="ocupada">Check-in activo</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group"><label>Notas</label><textarea id="res-notas" rows="2" placeholder="Observaciones..."></textarea></div>
+    <div class="modal-head"><div class="modal-title">Nueva Reserva</div><button class="modal-close" onclick="closeModal('modal-reserva')">×</button></div>
+    <div class="modal-body" id="res-body"><div class="loading"><span class="spinner"></span>Cargando...</div></div>
+    <div class="modal-footer" id="res-footer"></div>
+  </div>
+</div>
+
+<!-- Modal Confirmación -->
+<div class="modal-overlay" id="modal-confirm">
+  <div class="modal modal-sm">
+    <div class="modal-body" style="padding:36px 28px">
+      <div class="confirm-icon" id="confirm-icon"></div>
+      <div class="confirm-msg" id="confirm-msg"></div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="closeModal('modal-reserva')">Cancelar</button>
-      <button class="btn btn-primary" onclick="guardarReserva()">Guardar</button>
+      <button class="btn btn-ghost" onclick="closeModal('modal-confirm')">Cancelar</button>
+      <button class="btn" id="confirm-btn">Confirmar</button>
     </div>
   </div>
 </div>
@@ -389,393 +348,337 @@
 const SUPABASE_URL = 'https://bhjufsccthbtstklzwhw.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJoanVmc2NjdGhidHN0a2x6d2h3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNjE4MjIsImV4cCI6MjA5MTkzNzgyMn0.6oLO4SEN1xBFd5Q7DWnVJ7fL9XcomDOHyDmo7ddzc0A';
 const HOTEL_ID = 1;
-const H = { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` };
+const H = {'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`};
+let allReservas=[], allClientes=[], allHabitaciones=[];
 
-let allReservas = [], allClientes = [], allHabitaciones = [];
-
-async function api(table, method = 'GET', body = null, qs = '') {
-  const prefer = method === 'POST' ? 'return=representation' : 'return=minimal';
+async function api(table, method='GET', body=null, qs='') {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}${qs}`, {
-    method, headers: { ...H, 'Prefer': prefer },
-    body: body ? JSON.stringify(body) : null
+    method, headers:{...H,'Prefer':method==='POST'?'return=representation':'return=minimal'},
+    body: body?JSON.stringify(body):null
   });
-  if (!res.ok) { const e = await res.json(); throw new Error(e.message || 'Error en la base de datos'); }
-  if (method === 'GET' || (method === 'POST' && res.status === 201)) return res.json();
+  if (!res.ok){const e=await res.json();throw new Error(e.message||'Error');}
+  if (method==='GET'||(method==='POST'&&res.status===201)) return res.json();
   return null;
 }
 
-function toast(msg, type = 'success') {
-  const el = document.getElementById('toast');
-  el.textContent = (type === 'success' ? '✓  ' : '✗  ') + msg;
-  el.className = `toast ${type} show`;
-  setTimeout(() => el.classList.remove('show'), 3500);
+function toast(msg,type='success'){
+  const el=document.getElementById('toast');
+  el.textContent=(type==='success'?'✓  ':'✗  ')+msg;
+  el.className=`toast ${type} show`;
+  setTimeout(()=>el.classList.remove('show'),3500);
 }
 
-function openModal(id) {
-  if (id === 'modal-reserva') populateSelects();
+function confirm2(icon,msg,btnLabel,btnClass,cb){
+  document.getElementById('confirm-icon').textContent=icon;
+  document.getElementById('confirm-msg').innerHTML=msg;
+  const btn=document.getElementById('confirm-btn');
+  btn.textContent=btnLabel; btn.className=`btn ${btnClass}`;
+  btn.onclick=()=>{closeModal('modal-confirm');cb();};
+  openModal('modal-confirm');
+}
+
+function openModal(id){
+  if(id==='modal-reserva') buildReservaForm();
   document.getElementById(id).classList.add('open');
 }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
-document.querySelectorAll('.modal-overlay').forEach(m =>
-  m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); })
-);
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+document.querySelectorAll('.modal-overlay').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');}));
 
-// Navigation
-document.querySelectorAll('.nav-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const page = item.dataset.page;
-    document.querySelectorAll('[id^="page-"]').forEach(p => p.style.display = 'none');
-    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    document.getElementById('page-' + page).style.display = '';
+document.querySelectorAll('.nav-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+    const page=item.dataset.page;
+    document.querySelectorAll('[id^="page-"]').forEach(p=>p.style.display='none');
+    document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+    document.getElementById('page-'+page).style.display='';
     item.classList.add('active');
-    const loaders = { dashboard: loadDashboard, habitaciones: loadHabitaciones, reservas: loadReservas, clientes: loadClientes, reportes: loadReportes };
-    if (loaders[page]) loaders[page]();
+    ({dashboard:loadDashboard,habitaciones:loadHabitaciones,reservas:loadReservas,clientes:loadClientes,reportes:loadReportes})[page]?.();
   });
 });
 
-function badge(estado) {
-  const cls = { libre: 'badge-libre', ocupada: 'badge-ocupada', reservada: 'badge-reservada', checkout: 'badge-checkout', mantenimiento: 'badge-mantenimiento' };
-  const lbl = { libre: 'Libre', ocupada: 'Ocupada', reservada: 'Reservada', checkout: 'Check-out', mantenimiento: 'Mantenim.' };
-  return `<span class="badge ${cls[estado] || ''}">${lbl[estado] || estado}</span>`;
+function badge(e){
+  const c={libre:'badge-libre',ocupada:'badge-ocupada',reservada:'badge-reservada',checkout:'badge-checkout',cancelada:'badge-cancelada'};
+  const l={libre:'Libre',ocupada:'Ocupada',reservada:'Reservada',checkout:'Check-out',cancelada:'Cancelada'};
+  return `<span class="badge ${c[e]||''}">${l[e]||e}</span>`;
 }
-
-function fmtDate(d) {
-  if (!d) return '—';
-  return new Date(d + 'T12:00:00').toLocaleDateString('es-SV', { day: '2-digit', month: 'short', year: 'numeric' });
-}
-function fmtMoney(n) { return '$' + Number(n || 0).toFixed(2); }
+function fmtDate(d){if(!d)return'—';return new Date(d+'T12:00:00').toLocaleDateString('es-SV',{day:'2-digit',month:'short',year:'numeric'});}
+function fmtMoney(n){return'$'+Number(n||0).toFixed(2);}
+function todayStr(){return new Date().toISOString().split('T')[0];}
 
 // ── DASHBOARD ──
-async function loadDashboard() {
-  try {
-    const [habs, reservas] = await Promise.all([
-      api('habitaciones', 'GET', null, `?hotel_id=eq.${HOTEL_ID}&select=*`),
-      api('reservas', 'GET', null, `?hotel_id=eq.${HOTEL_ID}&select=*,clientes(nombre),habitaciones(numero,tipo)`)
+function resetDashDate(){document.getElementById('dash-date').value=todayStr();loadDashboard();}
+
+async function loadDashboard(){
+  const inp=document.getElementById('dash-date');
+  if(!inp.value)inp.value=todayStr();
+  const sel=inp.value;
+  const isToday=sel===todayStr();
+  try{
+    const[habs,reservas]=await Promise.all([
+      api('habitaciones','GET',null,`?hotel_id=eq.${HOTEL_ID}&select=*`),
+      api('reservas','GET',null,`?hotel_id=eq.${HOTEL_ID}&select=*,clientes(nombre),habitaciones(numero,tipo)`)
     ]);
-    allHabitaciones = habs;
+    allHabitaciones=habs;
+    const active=reservas.filter(r=>r.estado!=='cancelada'&&r.estado!=='checkout');
+    const enFecha=active.filter(r=>r.fecha_entrada<=sel&&r.fecha_salida>sel);
+    const habsOcupadas=new Set(enFecha.map(r=>r.habitacion_id));
+    const ocupadas=enFecha.filter(r=>r.estado==='ocupada').length;
+    const reservadas=enFecha.filter(r=>r.estado==='reservada').length;
+    const libres=habs.length-habsOcupadas.size;
 
-    const libres = habs.filter(h => h.estado === 'libre').length;
-    const ocupadas = habs.filter(h => h.estado === 'ocupada').length;
-    const reservadas = reservas.filter(r => r.estado === 'reservada').length;
-    const mes = new Date().getMonth();
-    const ingresosMes = reservas.filter(r => new Date(r.fecha_entrada + 'T12:00:00').getMonth() === mes)
-      .reduce((s, r) => s + Number(r.total || 0), 0);
+    document.getElementById('stat-libres').textContent=libres;
+    document.getElementById('stat-libres-sub').textContent=isToday?'disponibles hoy':`el ${fmtDate(sel)}`;
+    document.getElementById('stat-ocupadas').textContent=ocupadas;
+    document.getElementById('stat-reservadas').textContent=reservadas;
 
-    document.getElementById('stat-libres').textContent = libres;
-    document.getElementById('stat-ocupadas').textContent = ocupadas;
-    document.getElementById('stat-reservadas').textContent = reservadas;
-    document.getElementById('stat-ingresos').textContent = fmtMoney(ingresosMes);
+    const mes=new Date().getMonth();
+    const ing=reservas.filter(r=>r.estado==='checkout'&&new Date(r.fecha_salida+'T12:00:00').getMonth()===mes).reduce((s,r)=>s+Number(r.total||0),0);
+    document.getElementById('stat-ingresos').textContent=fmtMoney(ing);
 
-    renderBarChart(reservas, habs.length);
-    renderDonut(libres, ocupadas, reservadas, Math.max(0, habs.length - libres - ocupadas - reservadas));
+    renderBarChart(reservas,habs.length);
+    renderDonut(libres,ocupadas,reservadas);
 
-    const activas = reservas.filter(r => r.estado !== 'checkout').slice(0, 8);
-    document.getElementById('tb-dash-reservas').innerHTML = activas.length
-      ? activas.map(r => `<tr>
-          <td><strong>${r.clientes?.nombre || '—'}</strong></td>
-          <td>${r.habitaciones ? `#${r.habitaciones.numero} · ${r.habitaciones.tipo}` : '—'}</td>
-          <td>${fmtDate(r.fecha_entrada)}</td>
-          <td>${fmtDate(r.fecha_salida)}</td>
-          <td>${badge(r.estado)}</td>
-        </tr>`).join('')
-      : `<tr class="empty-row"><td colspan="5">No hay reservas activas</td></tr>`;
-  } catch (e) { toast('Error cargando dashboard: ' + e.message, 'error'); }
+    const activas=reservas.filter(r=>r.estado!=='checkout'&&r.estado!=='cancelada').slice(0,8);
+    document.getElementById('tb-dash-reservas').innerHTML=activas.length
+      ?activas.map(r=>`<tr><td><strong>${r.clientes?.nombre||'—'}</strong></td><td>${r.habitaciones?`#${r.habitaciones.numero} · ${r.habitaciones.tipo}`:'—'}</td><td>${fmtDate(r.fecha_entrada)}</td><td>${fmtDate(r.fecha_salida)}</td><td>${badge(r.estado)}</td></tr>`).join('')
+      :`<tr class="empty-row"><td colspan="5">No hay reservas activas</td></tr>`;
+  }catch(e){toast('Error: '+e.message,'error');}
 }
 
-function renderBarChart(reservas, total) {
-  const days = [];
-  for (let i = 6; i >= 0; i--) {
-    const d = new Date(); d.setDate(d.getDate() - i);
-    const lbl = d.toLocaleDateString('es-SV', { weekday: 'short' }).slice(0, 2);
-    const ds = d.toISOString().split('T')[0];
-    const occ = reservas.filter(r => r.fecha_entrada <= ds && r.fecha_salida > ds).length;
-    const pct = total > 0 ? Math.round((occ / total) * 100) : 0;
-    days.push({ lbl, pct });
+function renderBarChart(reservas,total){
+  const days=[];
+  for(let i=6;i>=0;i--){
+    const d=new Date();d.setDate(d.getDate()-i);
+    const lbl=d.toLocaleDateString('es-SV',{weekday:'short'}).slice(0,2);
+    const ds=d.toISOString().split('T')[0];
+    const occ=reservas.filter(r=>r.estado!=='cancelada'&&r.fecha_entrada<=ds&&r.fecha_salida>ds).length;
+    const pct=total>0?Math.round((occ/total)*100):0;
+    days.push({lbl,pct});
   }
-  const maxP = Math.max(...days.map(d => d.pct), 1);
-  document.getElementById('bar-chart').innerHTML = days.map(d => `
-    <div class="bar-wrap">
-      <div style="font-size:10px;color:var(--muted);margin-bottom:2px">${d.pct > 0 ? d.pct + '%' : ''}</div>
-      <div class="bar" style="height:${Math.max((d.pct / maxP) * 65, 3)}px;background:${d.pct > 60 ? 'var(--accent)' : 'var(--accent2)'}"></div>
-      <div class="bar-label">${d.lbl}</div>
-    </div>`).join('');
+  const maxP=Math.max(...days.map(d=>d.pct),1);
+  document.getElementById('bar-chart').innerHTML=days.map(d=>`<div class="bar-wrap"><div style="font-size:10px;color:var(--muted);margin-bottom:2px">${d.pct>0?d.pct+'%':''}</div><div class="bar" style="height:${Math.max((d.pct/maxP)*65,3)}px;background:${d.pct>60?'var(--accent)':'var(--accent2)'}"></div><div class="bar-label">${d.lbl}</div></div>`).join('');
 }
 
-function renderDonut(libre, ocupada, reservada, otro) {
-  const data = [
-    { label: 'Libre', val: libre, color: '#4caf82' },
-    { label: 'Ocupada', val: ocupada, color: '#c8a96e' },
-    { label: 'Reservada', val: reservada, color: '#7c9cff' },
-    { label: 'Otro', val: otro, color: '#2a3045' },
-  ].filter(d => d.val > 0);
-  const total = data.reduce((s, d) => s + d.val, 0) || 1;
-  let angle = -Math.PI / 2, paths = '';
-  const cx = 45, cy = 45, r = 36, ir = 22;
-  data.forEach(d => {
-    const sweep = (d.val / total) * 2 * Math.PI;
-    const x1 = cx + r * Math.cos(angle), y1 = cy + r * Math.sin(angle);
-    angle += sweep;
-    const x2 = cx + r * Math.cos(angle), y2 = cy + r * Math.sin(angle);
-    const xi1 = cx + ir * Math.cos(angle - sweep), yi1 = cy + ir * Math.sin(angle - sweep);
-    const xi2 = cx + ir * Math.cos(angle), yi2 = cy + ir * Math.sin(angle);
-    const lg = sweep > Math.PI ? 1 : 0;
-    paths += `<path d="M${x1},${y1} A${r},${r} 0 ${lg} 1 ${x2},${y2} L${xi2},${yi2} A${ir},${ir} 0 ${lg} 0 ${xi1},${yi1} Z" fill="${d.color}" opacity="0.85"/>`;
+function renderDonut(libre,ocupada,reservada){
+  const data=[{label:'Libre',val:libre,color:'#4caf82'},{label:'Ocupada',val:ocupada,color:'#c8a96e'},{label:'Reservada',val:reservada,color:'#7c9cff'}].filter(d=>d.val>0);
+  const total=data.reduce((s,d)=>s+d.val,0)||1;
+  let angle=-Math.PI/2,paths='';
+  const cx=45,cy=45,r=36,ir=22;
+  data.forEach(d=>{
+    const sweep=(d.val/total)*2*Math.PI;
+    const x1=cx+r*Math.cos(angle),y1=cy+r*Math.sin(angle);angle+=sweep;
+    const x2=cx+r*Math.cos(angle),y2=cy+r*Math.sin(angle);
+    const xi1=cx+ir*Math.cos(angle-sweep),yi1=cy+ir*Math.sin(angle-sweep);
+    const xi2=cx+ir*Math.cos(angle),yi2=cy+ir*Math.sin(angle);
+    const lg=sweep>Math.PI?1:0;
+    paths+=`<path d="M${x1},${y1} A${r},${r} 0 ${lg} 1 ${x2},${y2} L${xi2},${yi2} A${ir},${ir} 0 ${lg} 0 ${xi1},${yi1} Z" fill="${d.color}" opacity="0.85"/>`;
   });
-  document.getElementById('donut-svg').innerHTML = paths || '<circle cx="45" cy="45" r="36" fill="#2a3045"/>';
-  document.getElementById('donut-legend').innerHTML = data.map(d =>
-    `<div class="legend-item"><div class="legend-dot" style="background:${d.color}"></div>${d.label}: <strong style="color:var(--text);margin-left:2px">${d.val}</strong></div>`
-  ).join('');
+  document.getElementById('donut-svg').innerHTML=paths||'<circle cx="45" cy="45" r="36" fill="#2a3045"/>';
+  document.getElementById('donut-legend').innerHTML=data.map(d=>`<div class="legend-item"><div class="legend-dot" style="background:${d.color}"></div>${d.label}: <strong style="color:var(--text);margin-left:2px">${d.val}</strong></div>`).join('');
 }
 
 // ── HABITACIONES ──
-async function loadHabitaciones() {
-  try {
-    const habs = await api('habitaciones', 'GET', null, `?hotel_id=eq.${HOTEL_ID}&select=*&order=numero.asc`);
-    allHabitaciones = habs;
-    const grid = document.getElementById('rooms-grid');
-    grid.innerHTML = habs.length
-      ? habs.map(h => `
-        <div class="room-card">
-          <div class="room-number">#${h.numero}</div>
-          <div class="room-type">${h.tipo}</div>
-          <div class="room-price">${fmtMoney(h.precio_noche)}/noche</div>
-          <div class="room-status">${badge(h.estado)}</div>
-        </div>`).join('')
-      : '<p style="color:var(--muted);grid-column:1/-1;padding:20px">No hay habitaciones registradas.</p>';
-  } catch (e) { toast('Error: ' + e.message, 'error'); }
+async function loadHabitaciones(){
+  try{
+    const habs=await api('habitaciones','GET',null,`?hotel_id=eq.${HOTEL_ID}&select=*&order=numero.asc`);
+    allHabitaciones=habs;
+    document.getElementById('rooms-grid').innerHTML=habs.length
+      ?habs.map(h=>`<div class="room-card"><div class="room-number">#${h.numero}</div><div class="room-type">${h.tipo}</div><div class="room-price">${fmtMoney(h.precio_noche)}/noche</div><div class="room-status">${badge(h.estado)}</div></div>`).join('')
+      :'<p style="color:var(--muted);grid-column:1/-1;padding:20px">No hay habitaciones.</p>';
+  }catch(e){toast('Error: '+e.message,'error');}
 }
 
-async function guardarHabitacion() {
-  const body = {
-    hotel_id: HOTEL_ID,
-    numero: +document.getElementById('hab-numero').value,
-    tipo: document.getElementById('hab-tipo').value,
-    precio_noche: +document.getElementById('hab-precio').value,
-    estado: document.getElementById('hab-estado').value
-  };
-  if (!body.numero || !body.precio_noche) { toast('Completa todos los campos', 'error'); return; }
-  try {
-    await api('habitaciones', 'POST', body);
-    closeModal('modal-habitacion');
-    toast('Habitación guardada correctamente');
-    loadHabitaciones();
-  } catch (e) { toast('Error: ' + e.message, 'error'); }
+async function guardarHabitacion(){
+  const body={hotel_id:HOTEL_ID,numero:+document.getElementById('hab-numero').value,tipo:document.getElementById('hab-tipo').value,precio_noche:+document.getElementById('hab-precio').value,estado:document.getElementById('hab-estado').value};
+  if(!body.numero||!body.precio_noche){toast('Completa todos los campos','error');return;}
+  try{await api('habitaciones','POST',body);closeModal('modal-habitacion');toast('Habitación guardada');loadHabitaciones();}
+  catch(e){toast('Error: '+e.message,'error');}
 }
 
 // ── CLIENTES ──
-async function loadClientes() {
-  try {
-    const rows = await api('clientes', 'GET', null, `?hotel_id=eq.${HOTEL_ID}&select=*&order=nombre.asc`);
-    allClientes = rows;
-    renderClientes(rows);
-  } catch (e) { toast('Error: ' + e.message, 'error'); }
+function limpiarCliente(){['cli-nombre','cli-tel','cli-email','cli-notas'].forEach(id=>document.getElementById(id).value='');}
+
+async function loadClientes(){
+  try{const rows=await api('clientes','GET',null,`?hotel_id=eq.${HOTEL_ID}&select=*&order=nombre.asc`);allClientes=rows;renderClientes(rows);}
+  catch(e){toast('Error: '+e.message,'error');}
 }
 
-function renderClientes(rows) {
-  document.getElementById('tb-clientes').innerHTML = rows.length
-    ? rows.map(c => `<tr>
-        <td><strong>${c.nombre}</strong></td>
-        <td>${c.telefono || '—'}</td>
-        <td>${c.email || '—'}</td>
-        <td>${c.visitas || 0}</td>
-        <td>${fmtDate(c.ultimo_ingreso)}</td>
-      </tr>`).join('')
-    : `<tr class="empty-row"><td colspan="5">No hay clientes registrados aún</td></tr>`;
+function renderClientes(rows){
+  document.getElementById('tb-clientes').innerHTML=rows.length
+    ?rows.map(c=>`<tr><td><strong>${c.nombre}</strong></td><td>${c.telefono||'—'}</td><td>${c.email||'—'}</td><td>${c.visitas||0}</td><td>${fmtDate(c.ultimo_ingreso)}</td></tr>`).join('')
+    :`<tr class="empty-row"><td colspan="5">No hay clientes registrados</td></tr>`;
 }
 
-document.getElementById('search-clientes').addEventListener('input', e => {
-  const q = e.target.value.toLowerCase();
-  renderClientes(allClientes.filter(c => c.nombre.toLowerCase().includes(q) || (c.telefono || '').includes(q)));
+document.getElementById('search-clientes').addEventListener('input',e=>{
+  const q=e.target.value.toLowerCase();
+  renderClientes(allClientes.filter(c=>c.nombre.toLowerCase().includes(q)||(c.telefono||'').includes(q)));
 });
 
-async function guardarCliente() {
-  const body = {
-    hotel_id: HOTEL_ID,
-    nombre: document.getElementById('cli-nombre').value.trim(),
-    telefono: document.getElementById('cli-tel').value.trim(),
-    email: document.getElementById('cli-email').value.trim(),
-    notas: document.getElementById('cli-notas').value.trim()
-  };
-  if (!body.nombre) { toast('El nombre es obligatorio', 'error'); return; }
-  try {
-    await api('clientes', 'POST', body);
-    closeModal('modal-cliente');
-    toast('Cliente guardado correctamente');
-    loadClientes();
-  } catch (e) { toast('Error: ' + e.message, 'error'); }
+async function guardarCliente(){
+  const body={hotel_id:HOTEL_ID,nombre:document.getElementById('cli-nombre').value.trim(),telefono:document.getElementById('cli-tel').value.trim(),email:document.getElementById('cli-email').value.trim(),notas:document.getElementById('cli-notas').value.trim()};
+  if(!body.nombre){toast('El nombre es obligatorio','error');return;}
+  try{await api('clientes','POST',body);limpiarCliente();closeModal('modal-cliente');toast('Cliente guardado');loadClientes();}
+  catch(e){toast('Error: '+e.message,'error');}
 }
 
 // ── RESERVAS ──
-async function loadReservas() {
-  try {
-    const rows = await api('reservas', 'GET', null,
-      `?hotel_id=eq.${HOTEL_ID}&select=*,clientes(nombre,telefono),habitaciones(numero,tipo)&order=fecha_entrada.desc`);
-    allReservas = rows;
-    renderReservas(rows);
-  } catch (e) { toast('Error: ' + e.message, 'error'); }
+async function buildReservaForm(){
+  const body=document.getElementById('res-body');
+  const footer=document.getElementById('res-footer');
+  body.innerHTML='<div class="loading"><span class="spinner"></span>Cargando...</div>';
+  footer.innerHTML='';
+  try{
+    const clientes=await api('clientes','GET',null,`?hotel_id=eq.${HOTEL_ID}&select=id,nombre&order=nombre.asc`);
+    if(!clientes.length){
+      body.innerHTML=`<div class="empty-state"><div class="empty-state-icon">👤</div><div class="empty-state-title">Primero registra un cliente</div><div class="empty-state-desc">Para crear una reserva necesitas al menos un cliente en el sistema. Es rápido, solo toma un momento.</div><button class="btn btn-primary" onclick="closeModal('modal-reserva');openModal('modal-cliente')">Registrar cliente ahora</button></div>`;
+      footer.innerHTML='<button class="btn btn-ghost" onclick="closeModal(\'modal-reserva\')">Cerrar</button>';
+      return;
+    }
+    const habs=await api('habitaciones','GET',null,`?hotel_id=eq.${HOTEL_ID}&select=id,numero,tipo,precio_noche&order=numero.asc`);
+    const today=todayStr();
+    body.innerHTML=`
+      <div class="form-group"><label>Cliente</label>
+        <select id="res-cliente"><option value="">Seleccionar cliente...</option>${clientes.map(c=>`<option value="${c.id}">${c.nombre}</option>`).join('')}</select>
+      </div>
+      <div class="form-group"><label>Habitación</label>
+        <select id="res-habitacion"><option value="">Seleccionar habitación...</option>${habs.map(h=>`<option value="${h.id}" data-precio="${h.precio_noche}">#${h.numero} · ${h.tipo} — ${fmtMoney(h.precio_noche)}/noche</option>`).join('')}</select>
+        <div class="field-error" id="hab-error"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Fecha entrada</label><input id="res-entrada" type="date" min="${today}"></div>
+        <div class="form-group"><label>Fecha salida</label><input id="res-salida" type="date" min="${today}"><div class="field-error" id="fecha-error"></div></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Total ($)</label><input id="res-total" type="number" placeholder="0.00"></div>
+        <div class="form-group"><label>Estado</label><select id="res-estado"><option value="reservada">Reservada</option><option value="ocupada">Check-in activo</option></select></div>
+      </div>
+      <div class="form-group"><label>Notas</label><textarea id="res-notas" rows="2" placeholder="Observaciones..."></textarea></div>`;
+    footer.innerHTML=`<button class="btn btn-ghost" onclick="closeModal('modal-reserva')">Cancelar</button><button class="btn btn-primary" onclick="guardarReserva()">Guardar reserva</button>`;
+    ['res-entrada','res-salida'].forEach(id=>document.getElementById(id).addEventListener('change',()=>{validarFechas();calcTotal();}));
+    document.getElementById('res-habitacion').addEventListener('change',calcTotal);
+  }catch(e){body.innerHTML=`<p style="color:var(--danger);padding:20px">Error: ${e.message}</p>`;}
 }
 
-function renderReservas(rows) {
-  document.getElementById('tb-reservas').innerHTML = rows.length
-    ? rows.map(r => `<tr>
-        <td><strong>${r.clientes?.nombre || '—'}</strong></td>
-        <td>${r.clientes?.telefono || '—'}</td>
-        <td>${r.habitaciones ? `#${r.habitaciones.numero} · ${r.habitaciones.tipo}` : '—'}</td>
-        <td>${fmtDate(r.fecha_entrada)}</td>
-        <td>${fmtDate(r.fecha_salida)}</td>
-        <td>${fmtMoney(r.total)}</td>
-        <td>${badge(r.estado)}</td>
-        <td><button class="btn btn-ghost btn-sm" onclick="cambiarEstado(${r.id},'${r.estado}',${r.habitacion_id})">Acción</button></td>
-      </tr>`).join('')
-    : `<tr class="empty-row"><td colspan="8">No hay reservas registradas</td></tr>`;
+function validarFechas(){
+  const e=document.getElementById('res-entrada')?.value;
+  const s=document.getElementById('res-salida')?.value;
+  const err=document.getElementById('fecha-error');
+  if(!err)return true;
+  if(e&&s&&s<=e){err.textContent='La salida debe ser posterior a la entrada';err.style.display='block';return false;}
+  err.style.display='none';return true;
 }
 
-document.getElementById('tabs-reservas').addEventListener('click', e => {
-  const tab = e.target.closest('.tab');
-  if (!tab) return;
-  document.querySelectorAll('#tabs-reservas .tab').forEach(t => t.classList.remove('active'));
+function calcTotal(){
+  const sel=document.getElementById('res-habitacion');if(!sel)return;
+  const opt=sel.options[sel.selectedIndex];
+  const precio=opt?+opt.dataset.precio:0;
+  const e=document.getElementById('res-entrada')?.value;
+  const s=document.getElementById('res-salida')?.value;
+  if(e&&s&&precio&&s>e){const noches=Math.max(1,Math.round((new Date(s)-new Date(e))/86400000));document.getElementById('res-total').value=(noches*precio).toFixed(2);}
+}
+
+async function guardarReserva(){
+  if(!validarFechas())return;
+  const entrada=document.getElementById('res-entrada').value;
+  const salida=document.getElementById('res-salida').value;
+  const habId=+document.getElementById('res-habitacion').value;
+  const clienteId=+document.getElementById('res-cliente').value;
+  if(!clienteId||!habId||!entrada||!salida){toast('Completa todos los campos requeridos','error');return;}
+  try{
+    const conflictos=await api('reservas','GET',null,`?hotel_id=eq.${HOTEL_ID}&habitacion_id=eq.${habId}&estado=in.(reservada,ocupada)&fecha_entrada=lt.${salida}&fecha_salida=gt.${entrada}&select=id`);
+    if(conflictos.length){const err=document.getElementById('hab-error');err.textContent='Esta habitación ya tiene una reserva en esas fechas';err.style.display='block';return;}
+    document.getElementById('hab-error').style.display='none';
+  }catch(e){toast('Error validando disponibilidad','error');return;}
+  const body={hotel_id:HOTEL_ID,cliente_id:clienteId,habitacion_id:habId,fecha_entrada:entrada,fecha_salida:salida,total:+document.getElementById('res-total').value,estado:document.getElementById('res-estado').value,notas:document.getElementById('res-notas').value};
+  try{
+    await api('reservas','POST',body);
+    if(body.estado==='ocupada')await api(`habitaciones?id=eq.${habId}`,'PATCH',{estado:'ocupada'});
+    closeModal('modal-reserva');toast('Reserva creada');loadReservas();loadDashboard();
+  }catch(e){toast('Error: '+e.message,'error');}
+}
+
+async function loadReservas(){
+  try{const rows=await api('reservas','GET',null,`?hotel_id=eq.${HOTEL_ID}&select=*,clientes(nombre,telefono),habitaciones(numero,tipo)&order=fecha_entrada.desc`);allReservas=rows;renderReservas(rows);}
+  catch(e){toast('Error: '+e.message,'error');}
+}
+
+function accionesReserva(r){
+  if(r.estado==='reservada') return `<div class="action-btns"><button class="btn btn-success btn-sm" onclick="cambiarEstado(${r.id},'reservada',${r.habitacion_id})">Check-in</button><button class="btn btn-danger btn-sm" onclick="cancelarReserva(${r.id},${r.habitacion_id},'${r.estado}')">Cancelar</button></div>`;
+  if(r.estado==='ocupada') return `<div class="action-btns"><button class="btn btn-primary btn-sm" onclick="cambiarEstado(${r.id},'ocupada',${r.habitacion_id})">Check-out</button><button class="btn btn-danger btn-sm" onclick="cancelarReserva(${r.id},${r.habitacion_id},'${r.estado}')">Cancelar</button></div>`;
+  return '';
+}
+
+function renderReservas(rows){
+  document.getElementById('tb-reservas').innerHTML=rows.length
+    ?rows.map(r=>`<tr><td><strong>${r.clientes?.nombre||'—'}</strong></td><td>${r.clientes?.telefono||'—'}</td><td>${r.habitaciones?`#${r.habitaciones.numero} · ${r.habitaciones.tipo}`:'—'}</td><td>${fmtDate(r.fecha_entrada)}</td><td>${fmtDate(r.fecha_salida)}</td><td>${fmtMoney(r.total)}</td><td>${badge(r.estado)}</td><td>${accionesReserva(r)}</td></tr>`).join('')
+    :`<tr class="empty-row"><td colspan="8">No hay reservas</td></tr>`;
+}
+
+document.getElementById('tabs-reservas').addEventListener('click',e=>{
+  const tab=e.target.closest('.tab');if(!tab)return;
+  document.querySelectorAll('#tabs-reservas .tab').forEach(t=>t.classList.remove('active'));
   tab.classList.add('active');
-  const f = tab.dataset.filter;
-  renderReservas(f === 'todas' ? allReservas : allReservas.filter(r => r.estado === f));
+  const f=tab.dataset.filter;
+  renderReservas(f==='todas'?allReservas:allReservas.filter(r=>r.estado===f));
 });
 
-document.getElementById('search-reservas').addEventListener('input', e => {
-  const q = e.target.value.toLowerCase();
-  renderReservas(allReservas.filter(r => (r.clientes?.nombre || '').toLowerCase().includes(q)));
+document.getElementById('search-reservas').addEventListener('input',e=>{
+  const q=e.target.value.toLowerCase();
+  renderReservas(allReservas.filter(r=>(r.clientes?.nombre||'').toLowerCase().includes(q)));
 });
 
-async function populateSelects() {
-  try {
-    const [clientes, habs] = await Promise.all([
-      api('clientes', 'GET', null, `?hotel_id=eq.${HOTEL_ID}&select=id,nombre&order=nombre.asc`),
-      api('habitaciones', 'GET', null, `?hotel_id=eq.${HOTEL_ID}&select=id,numero,tipo,precio_noche&estado=eq.libre&order=numero.asc`)
-    ]);
-    document.getElementById('res-cliente').innerHTML =
-      '<option value="">Seleccionar cliente...</option>' +
-      clientes.map(c => `<option value="${c.id}">${c.nombre}</option>`).join('');
-    document.getElementById('res-habitacion').innerHTML =
-      '<option value="">Seleccionar habitación...</option>' +
-      habs.map(h => `<option value="${h.id}" data-precio="${h.precio_noche}">#${h.numero} · ${h.tipo} — ${fmtMoney(h.precio_noche)}/noche</option>`).join('');
-  } catch (e) { toast('Error cargando selects', 'error'); }
-}
-
-function calcTotal() {
-  const sel = document.getElementById('res-habitacion');
-  const opt = sel.options[sel.selectedIndex];
-  const precio = opt ? +opt.dataset.precio : 0;
-  const entrada = document.getElementById('res-entrada').value;
-  const salida = document.getElementById('res-salida').value;
-  if (entrada && salida && precio) {
-    const noches = Math.max(1, Math.round((new Date(salida) - new Date(entrada)) / 86400000));
-    document.getElementById('res-total').value = (noches * precio).toFixed(2);
-  }
-}
-['res-entrada', 'res-salida', 'res-habitacion'].forEach(id =>
-  document.getElementById(id).addEventListener('change', calcTotal)
-);
-
-async function guardarReserva() {
-  const body = {
-    hotel_id: HOTEL_ID,
-    cliente_id: +document.getElementById('res-cliente').value,
-    habitacion_id: +document.getElementById('res-habitacion').value,
-    fecha_entrada: document.getElementById('res-entrada').value,
-    fecha_salida: document.getElementById('res-salida').value,
-    total: +document.getElementById('res-total').value,
-    estado: document.getElementById('res-estado').value,
-    notas: document.getElementById('res-notas').value
-  };
-  if (!body.cliente_id || !body.habitacion_id || !body.fecha_entrada || !body.fecha_salida) {
-    toast('Completa cliente, habitación y fechas', 'error'); return;
-  }
-  try {
-    await api('reservas', 'POST', body);
-    if (body.estado === 'ocupada') {
-      await api(`habitaciones?id=eq.${body.habitacion_id}`, 'PATCH', { estado: 'ocupada' });
+async function cambiarEstado(id,estadoActual,habId){
+  const esCheckin=estadoActual==='reservada';
+  confirm2(
+    esCheckin?'🔑':'🏁',
+    esCheckin?`¿Confirmar <strong>Check-in</strong>?<br><span style="font-size:12px;display:block;margin-top:8px">La habitación quedará marcada como ocupada.</span>`:`¿Confirmar <strong>Check-out</strong>?<br><span style="font-size:12px;display:block;margin-top:8px">La habitación quedará libre y el ingreso se registrará como confirmado.</span>`,
+    esCheckin?'Hacer Check-in':'Hacer Check-out',
+    esCheckin?'btn-success':'btn-primary',
+    async()=>{
+      const nuevo=esCheckin?'ocupada':'checkout';
+      try{
+        await api(`reservas?id=eq.${id}`,'PATCH',{estado:nuevo});
+        if(esCheckin&&habId)await api(`habitaciones?id=eq.${habId}`,'PATCH',{estado:'ocupada'});
+        if(!esCheckin&&habId)await api(`habitaciones?id=eq.${habId}`,'PATCH',{estado:'libre'});
+        toast(esCheckin?'Check-in registrado':'Check-out registrado');
+        loadReservas();loadDashboard();
+      }catch(e){toast('Error: '+e.message,'error');}
     }
-    closeModal('modal-reserva');
-    toast('Reserva creada correctamente');
-    loadReservas();
-    loadDashboard();
-  } catch (e) { toast('Error: ' + e.message, 'error'); }
+  );
 }
 
-async function cambiarEstado(id, estadoActual, habId) {
-  const siguiente = { reservada: 'ocupada', ocupada: 'checkout' };
-  const labels = { reservada: 'hacer Check-in (marcar como ocupada)', ocupada: 'hacer Check-out (liberar habitación)' };
-  if (!siguiente[estadoActual]) { toast('Esta reserva ya está cerrada', 'error'); return; }
-  if (!confirm(`¿Confirmar: ${labels[estadoActual]}?`)) return;
-  const nuevo = siguiente[estadoActual];
-  try {
-    await api(`reservas?id=eq.${id}`, 'PATCH', { estado: nuevo });
-    if (nuevo === 'checkout' && habId) {
-      await api(`habitaciones?id=eq.${habId}`, 'PATCH', { estado: 'libre' });
-    } else if (nuevo === 'ocupada' && habId) {
-      await api(`habitaciones?id=eq.${habId}`, 'PATCH', { estado: 'ocupada' });
+async function cancelarReserva(id,habId,estadoActual){
+  confirm2('⚠️','¿Cancelar esta reserva?<br><span style="font-size:12px;display:block;margin-top:8px">Esta acción no se puede deshacer. La habitación quedará disponible.</span>','Sí, cancelar reserva','btn-danger',
+    async()=>{
+      try{
+        await api(`reservas?id=eq.${id}`,'PATCH',{estado:'cancelada'});
+        if(habId&&estadoActual==='ocupada')await api(`habitaciones?id=eq.${habId}`,'PATCH',{estado:'libre'});
+        toast('Reserva cancelada');loadReservas();loadDashboard();
+      }catch(e){toast('Error: '+e.message,'error');}
     }
-    toast('Estado actualizado');
-    loadReservas();
-    loadDashboard();
-  } catch (e) { toast('Error: ' + e.message, 'error'); }
+  );
 }
 
 // ── REPORTES ──
-async function loadReportes() {
-  try {
-    const reservas = await api('reservas', 'GET', null,
-      `?hotel_id=eq.${HOTEL_ID}&select=*,clientes(nombre),habitaciones(tipo)&order=fecha_entrada.desc`);
-
-    const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-    const ingMes = Array(12).fill(0);
-    reservas.forEach(r => {
-      const m = new Date(r.fecha_entrada + 'T12:00:00').getMonth();
-      ingMes[m] += Number(r.total || 0);
-    });
-    const maxIng = Math.max(...ingMes, 1);
-    document.getElementById('report-ingresos').innerHTML = ingMes.map((v, i) => `
-      <div class="bar-wrap">
-        <div style="font-size:9px;color:var(--muted)">${v > 0 ? '$' + Math.round(v) : ''}</div>
-        <div class="bar" style="height:${Math.max((v / maxIng) * 65, 2)}px;background:var(--accent)"></div>
-        <div class="bar-label">${meses[i]}</div>
-      </div>`).join('');
-
-    const tipos = {};
-    reservas.forEach(r => {
-      const t = r.habitaciones?.tipo || 'N/A';
-      tipos[t] = (tipos[t] || 0) + 1;
-    });
-    const totalRes = reservas.length || 1;
-    document.getElementById('report-tipos').innerHTML = Object.entries(tipos)
-      .sort((a, b) => b[1] - a[1])
-      .map(([t, n]) => `
-        <div style="margin-bottom:12px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px">
-            <span>${t}</span><span style="color:var(--accent)">${n} reserva${n !== 1 ? 's' : ''}</span>
-          </div>
-          <div style="background:var(--border);border-radius:4px;height:5px">
-            <div style="background:var(--accent);width:${Math.round(n / totalRes * 100)}%;height:5px;border-radius:4px"></div>
-          </div>
-        </div>`).join('') || '<span style="color:var(--muted)">Sin datos aún</span>';
-
-    const cf = {};
-    reservas.forEach(r => {
-      const n = r.clientes?.nombre || '—';
-      if (!cf[n]) cf[n] = { visitas: 0, total: 0 };
-      cf[n].visitas++;
-      cf[n].total += Number(r.total || 0);
-    });
-    document.getElementById('tb-frecuentes').innerHTML = Object.entries(cf)
-      .sort((a, b) => b[1].visitas - a[1].visitas)
-      .slice(0, 10)
-      .map(([n, d]) => `<tr>
-        <td><strong>${n}</strong></td>
-        <td>${d.visitas}</td>
-        <td>${fmtMoney(d.total)}</td>
-      </tr>`).join('') || `<tr class="empty-row"><td colspan="3">Sin datos aún</td></tr>`;
-  } catch (e) { toast('Error cargando reportes: ' + e.message, 'error'); }
+async function loadReportes(){
+  try{
+    const reservas=await api('reservas','GET',null,`?hotel_id=eq.${HOTEL_ID}&select=*,clientes(nombre),habitaciones(tipo)&order=fecha_entrada.desc`);
+    const completadas=reservas.filter(r=>r.estado==='checkout');
+    const meses=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+    const ingMes=Array(12).fill(0);
+    completadas.forEach(r=>{const m=new Date(r.fecha_salida+'T12:00:00').getMonth();ingMes[m]+=Number(r.total||0);});
+    const maxIng=Math.max(...ingMes,1);
+    document.getElementById('report-ingresos').innerHTML=ingMes.map((v,i)=>`<div class="bar-wrap"><div style="font-size:9px;color:var(--muted)">${v>0?'$'+Math.round(v):''}</div><div class="bar" style="height:${Math.max((v/maxIng)*65,2)}px;background:var(--accent)"></div><div class="bar-label">${meses[i]}</div></div>`).join('');
+    const tipos={};
+    reservas.filter(r=>r.estado!=='cancelada').forEach(r=>{const t=r.habitaciones?.tipo||'N/A';tipos[t]=(tipos[t]||0)+1;});
+    const totalRes=Object.values(tipos).reduce((a,b)=>a+b,0)||1;
+    document.getElementById('report-tipos').innerHTML=Object.entries(tipos).sort((a,b)=>b[1]-a[1]).map(([t,n])=>`<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px"><span>${t}</span><span style="color:var(--accent)">${n} reserva${n!==1?'s':''}</span></div><div style="background:var(--border);border-radius:4px;height:5px"><div style="background:var(--accent);width:${Math.round(n/totalRes*100)}%;height:5px;border-radius:4px"></div></div></div>`).join('')||'<span style="color:var(--muted)">Sin datos</span>';
+    const cf={};
+    completadas.forEach(r=>{const n=r.clientes?.nombre||'—';if(!cf[n])cf[n]={visitas:0,total:0};cf[n].visitas++;cf[n].total+=Number(r.total||0);});
+    document.getElementById('tb-frecuentes').innerHTML=Object.entries(cf).sort((a,b)=>b[1].visitas-a[1].visitas).slice(0,10).map(([n,d])=>`<tr><td><strong>${n}</strong></td><td>${d.visitas}</td><td>${fmtMoney(d.total)}</td></tr>`).join('')||`<tr class="empty-row"><td colspan="3">Sin checkouts registrados aún</td></tr>`;
+  }catch(e){toast('Error: '+e.message,'error');}
 }
 
-// Init
+document.getElementById('dash-date').value=todayStr();
 loadDashboard();
 </script>
 </body>
